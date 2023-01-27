@@ -15,7 +15,7 @@ class CameraPosition {
   /// null.
   const CameraPosition({
     this.bearing = 0.0,
-    @required this.target,
+    /*required*/ @required this.target,
     this.tilt = 0.0,
     this.zoom = 0.0,
   })  : assert(bearing != null),

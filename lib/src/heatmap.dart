@@ -90,11 +90,7 @@ class HeatmapGradient {
   final int colorMapSize;
 
   dynamic _toJson() {
-    return <dynamic>[
-      colors.map((Color c) => c.value).toList(),
-      startPoints,
-      colorMapSize
-    ];
+    return <dynamic>[colors.map((Color c) => c.value).toList(), startPoints, colorMapSize];
   }
 
   @override
@@ -256,15 +252,13 @@ Map<HeatmapId, Heatmap> _keyByHeatmapId(Iterable<Heatmap> heatmaps) {
   if (heatmaps == null) {
     return <HeatmapId, Heatmap>{};
   }
-  return Map<HeatmapId, Heatmap>.fromEntries(heatmaps.map((Heatmap heatmap) =>
-      MapEntry<HeatmapId, Heatmap>(heatmap.heatmapId, heatmap.clone())));
+  return Map<HeatmapId, Heatmap>.fromEntries(
+      heatmaps.map((Heatmap heatmap) => MapEntry<HeatmapId, Heatmap>(heatmap.heatmapId, heatmap.clone())));
 }
 
 List<Map<String, dynamic>> _serializeHeatmapSet(Set<Heatmap> heatmaps) {
   if (heatmaps == null) {
     return null;
   }
-  return heatmaps
-      .map<Map<String, dynamic>>((Heatmap p) => p._toJson())
-      .toList();
+  return heatmaps.map<Map<String, dynamic>>((Heatmap p) => p._toJson()).toList();
 }
